@@ -2,7 +2,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const cors = require('cors')
 
-const db = require('./config/connection')
+const db = require('./db')
 const teamRouter = require('./routes/team-router')
 
 const app = express()
