@@ -2,11 +2,11 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const cors = require('cors')
 
-const db = require('./db')
+const db = require('./config/connection')
 const teamRouter = require('./routes/team-router')
 
 const app = express()
-const apiPort = 3001
+const apiPort = 3000
 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(cors())
