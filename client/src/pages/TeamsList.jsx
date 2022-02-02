@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import ReactTable from 'react-table-6'
 import api from '../api'
 
@@ -41,7 +41,9 @@ class DeleteTeam extends Component {
                 `Do tou want to delete the team ${this.props.id} permanently?`,
             )
         ) {
-            api.deleteTeamById(this.props.id)
+            api.deleteTeamById(this.props.id).catch(() => {
+                window.alert("Error occurred while deleting team")
+            })
             window.location.reload()
         }
     }
@@ -62,19 +64,20 @@ class TeamsList extends Component {
     }
 
     componentDidMount = async () => {
-        this.setState({ isLoading: true })
+        this.setState({isLoading: true})
 
         await api.getAllTeams().then(teams => {
             this.setState({
                 teams: teams.data.data,
                 isLoading: false,
             })
+        }).catch(() => {
+            window.alert("Error occurred while fetching teams")
         })
     }
 
     render() {
-        const { teams, isLoading } = this.state
-        console.log('TCL: TeamsList -> render -> teams', teams)
+        const {teams, isLoading} = this.state
 
         const columns = [
             {
@@ -95,15 +98,16 @@ class TeamsList extends Component {
             {
                 Header: 'League',
                 accessor: 'league',
-                Cell: props => <span>{props?.value?.join(' / ')}</span>,
+                Cell: props => <span>{props?.value}</span>,
+                filterable: true,
             },
             {
                 Header: '',
                 accessor: '',
-                Cell: function(props) {
+                Cell: function (props) {
                     return (
                         <span>
-                            <DeleteTeam id={props.original._id} />
+                            <DeleteTeam id={props.original._id}/>
                         </span>
                     )
                 },
@@ -111,10 +115,10 @@ class TeamsList extends Component {
             {
                 Header: '',
                 accessor: '',
-                Cell: function(props) {
+                Cell: function (props) {
                     return (
                         <span>
-                            <UpdateTeam id={props.original._id} />
+                            <UpdateTeam id={props.original._id}/>
                         </span>
                     )
                 },

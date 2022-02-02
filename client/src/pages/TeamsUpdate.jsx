@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import api from '../api'
 
 import styled from 'styled-components'
@@ -43,13 +43,13 @@ class TeamsUpdate extends Component {
             id: this.props.match.params.id,
             name: '',
             rating: '',
-            time: '',
+            league: '',
         }
     }
 
     handleChangeInputName = async event => {
         const name = event.target.value
-        this.setState({ name })
+        this.setState({name})
     }
 
     handleChangeInputRating = async event => {
@@ -57,42 +57,41 @@ class TeamsUpdate extends Component {
             ? event.target.value
             : this.state.rating
 
-        this.setState({ rating })
+        this.setState({rating})
     }
 
-    handleChangeInputTime = async event => {
-        const time = event.target.value
-        this.setState({ time })
+    handleChangeInputLeague = async event => {
+        const league = event.target.value
+        this.setState({league})
     }
 
     handleUpdateTeam = async () => {
-        const { id, name, rating, time } = this.state
-        const arrayTime = time.split('/')
-        const payload = { name, rating, time: arrayTime }
+        const {id, name, rating, league} = this.state
+        const payload = {name, rating, league}
 
-        await api.updateTeamById(id, payload).then(res => {
+        await api.updateTeamById(id, payload).then(_ => {
             window.alert(`Team updated successfully`)
             this.setState({
                 name: '',
                 rating: '',
-                time: '',
+                league: '',
             })
         })
     }
 
     componentDidMount = async () => {
-        const { id } = this.state
+        const {id} = this.state
         const team = await api.getTeamById(id)
 
         this.setState({
             name: team.data.data.name,
             rating: team.data.data.rating,
-            time: team.data.data.time.join('/'),
+            league: team.data.data.league
         })
     }
 
     render() {
-        const { name, rating, time } = this.state
+        const {name, rating, league} = this.state
         return (
             <Wrapper>
                 <Title>Create Team</Title>
@@ -116,11 +115,11 @@ class TeamsUpdate extends Component {
                     onChange={this.handleChangeInputRating}
                 />
 
-                <Label>Time: </Label>
+                <Label>League: </Label>
                 <InputText
                     type="text"
-                    value={time}
-                    onChange={this.handleChangeInputTime}
+                    value={league}
+                    onChange={this.handleChangeInputLeague}
                 />
 
                 <Button onClick={this.handleUpdateTeam}>Update Team</Button>
