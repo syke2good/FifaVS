@@ -3,12 +3,12 @@ const bodyParser = require('body-parser')
 const cors = require('cors')
 
 const db = require('./db')
-const teamRouter = require('./routes/team-router')
+const router = require('./routes/team-router')
 
 const app = express()
 const apiPort = 3001
 
-app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.urlencoded({extended: true}))
 app.use(cors())
 app.use(bodyParser.json())
 
@@ -18,6 +18,6 @@ app.get('/', (req, res) => {
     res.send('Hello World!')
 })
 
-app.use('/api', teamRouter)
+app.use('/api', router)
 
 app.listen(apiPort, () => console.log(`Server running on port ${apiPort}`))
