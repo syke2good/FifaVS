@@ -18,6 +18,7 @@ function App() {
                     exact
                     component={TeamUpdate}
                 />
+                <Route path ="/matches" exact component={MatchList}/>
                 <Route path="/" exact component={TeamVs}/>
             </Switch>
         </Router>

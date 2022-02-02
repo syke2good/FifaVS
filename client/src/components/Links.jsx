@@ -33,6 +33,11 @@ class Links extends Component {
                                 Create Team
                             </Link>
                         </Item>
+                        <Item>
+                            <Link to="/matches" className="nav-link">
+                                Match results
+                            </Link>
+                        </Item>
                     </List>
                 </Collapse>
             </React.Fragment>

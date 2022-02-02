@@ -1,30 +1,28 @@
-import React, { Component } from 'react'
-import styled from 'styled-components'
+import React from 'react'
+import {Container, Nav, Navbar} from "react-bootstrap";
 
-import Logo from './Logo'
-import Links from './Links'
+// const Nav = styled.nav.attrs({
+//     className: 'navbar-static-top navbar navbar-expand-lg navbar-dark bg-dark',
+// })`
+//     margin-bottom: 20 px;
+// `
 
-const Container = styled.div.attrs({
-    className: 'container',
-})``
-
-const Nav = styled.nav.attrs({
-    className: 'navbar navbar-expand-lg navbar-dark bg-dark',
-})`
-    margin-bottom: 20 px;
-`
-
-class NavBar extends Component {
-    render() {
-        return (
+function NavBar() {
+    return (
+        <Navbar bg="dark" expand="lg" variant="dark">
             <Container>
-                <Nav>
-                    <Logo />
-                    <Links />
-                </Nav>
+                <Navbar.Brand href="/">FIFA VS</Navbar.Brand>
+                <Navbar.Toggle aria-controls="basic-navbar-nav"/>
+                <Navbar.Collapse id="basic-navbar-nav">
+                    <Nav className="me-auto">
+                        <Nav.Link href="/team/list">List Team</Nav.Link>
+                        <Nav.Link href="/team/create">Create Team</Nav.Link>
+                        <Nav.Link href="/matches">Match Results</Nav.Link>
+                    </Nav>
+                </Navbar.Collapse>
             </Container>
-        )
-    }
+        </Navbar>
+    )
 }
 
-export default NavBar
+export {NavBar}
