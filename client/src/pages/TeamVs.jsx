@@ -10,7 +10,7 @@ function TeamVs(){
         const team1 = team1el.options[team1el.selectedIndex].textContent
         const team2 = team2el.options[team2el.selectedIndex].textContent
         console.log(team1, team2)
-        const team1score = Math.ceil(Math.random()*5)
+        const team1score = Math.ceil(Math.random()*7)
         const team2score = Math.ceil(Math.random()*5)
         setFirstTeam(team1)
         setSecondTeam(team2)
@@ -23,13 +23,13 @@ function TeamVs(){
         <div className="vs">
         <h1>TeamVs</h1>
        <select id="team1">
-           <option>Team 1</option>
+           <option>Nepal</option>
            <option>Team 2</option>
            <option>Team 3</option>
        </select>
        <button onClick={teamBattle}>Start</button>
        <select id="team2">
-           <option>Team 1</option>
+           <option>India</option>
            <option>Team 2</option>
            <option>Team 3</option>
        </select>
