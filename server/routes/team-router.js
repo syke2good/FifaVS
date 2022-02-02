@@ -1,6 +1,7 @@
 const express = require('express')
 
-const TeamCtrl = require('../controllers/team-ctrl')
+const TeamController = require('../controllers/team-controllers')
+const MatchController = require('../controllers/match-controllers')
 
 const router = express.Router()
 
@@ -9,5 +10,8 @@ router.put('/team/:id', TeamCtrl.updateTeam)
 router.delete('/team/:id', TeamCtrl.deleteTeam)
 router.get('/team/:id', TeamCtrl.getTeamById)
 router.get('/teams', TeamCtrl.getTeams)
+router.get('/matches', MatchController.getMatches)
+router.get('/match', MatchController.createMatch)
+
 
 module.exports = router
