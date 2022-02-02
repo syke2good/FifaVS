@@ -59,3 +59,23 @@ const createMatch = async (req, res) => {
             })
         })
 }
+
+const getMatches = async (req, res) => {
+    await Match.find({}, (err, matches) => {
+        if (err) {
+            return res.status(400).json({success: false, error: err})
+        }
+        if (!matches.length) {
+            return res
+                .status(404)
+                .json({success: false, error: `Matches not found`})
+        }
+
+        return res.status(200).json({success: true, data: matches})
+    })
+}
+
+module.exports = {
+    createMatch,
+    getMatches
+}
