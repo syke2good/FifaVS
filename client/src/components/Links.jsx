@@ -19,7 +19,7 @@ class Links extends Component {
         return (
             <React.Fragment>
                 <Link to="/" className="navbar-brand">
-                    My first MERN Application
+                   Fifa VS
                 </Link>
                 <Collapse>
                     <List>
@@ -30,7 +30,7 @@ class Links extends Component {
                         </Item>
                         <Item>
                             <Link to="/team/create" className="nav-link">
-                                Create Movie
+                                Create Team
                             </Link>
                         </Item>
                     </List>

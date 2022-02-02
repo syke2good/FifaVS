@@ -42,7 +42,7 @@ class TeamsInsert extends Component {
         this.state = {
             name: '',
             rating: '',
-            time: '',
+            league: '',
         }
     }
 
@@ -59,28 +59,28 @@ class TeamsInsert extends Component {
         this.setState({ rating })
     }
 
-    handleChangeInputTime = async event => {
-        const time = event.target.value
-        this.setState({ time })
+    handleChangeInputLeague = async event => {
+        const league = event.target.value
+        this.setState({ league })
     }
 
     handleIncludeTeam = async () => {
-        const { name, rating, time } = this.state
-        const arrayTime = time.split('/')
-        const payload = { name, rating, time: arrayTime }
+        const { name, rating, league } = this.state
+        const arrayLeague = league.split('/')
+        const payload = { name, rating, league: arrayLeague }
 
         await api.insertTeam(payload).then(res => {
             window.alert(`Team inserted successfully`)
             this.setState({
                 name: '',
                 rating: '',
-                time: '',
+                league: '',
             })
         })
     }
 
     render() {
-        const { name, rating, time } = this.state
+        const { name, rating, league } = this.state
         return (
             <Wrapper>
                 <Title>Create Team</Title>
@@ -104,11 +104,11 @@ class TeamsInsert extends Component {
                     onChange={this.handleChangeInputRating}
                 />
 
-                <Label>Time: </Label>
+                <Label>League: </Label>
                 <InputText
                     type="text"
-                    value={time}
-                    onChange={this.handleChangeInputTime}
+                    value={league}
+                    onChange={this.handleChangeInputLeague}
                 />
 
                 <Button onClick={this.handleIncludeTeam}>Add Team</Button>
