@@ -1,10 +1,6 @@
 import React from 'react'
-<<<<<<< HEAD
-import {Container, Nav, Navbar} from "react-bootstrap";
-=======
 import { Container, Nav, Navbar } from "react-bootstrap";
 import Auth from '../utils/auth'
->>>>>>> a1f4d033064e87b35f459e2fd5d500f1929ce6d9
 
 // const Nav = styled.nav.attrs({
 //     className: 'navbar-static-top navbar navbar-expand-lg navbar-dark bg-dark',
@@ -17,19 +13,13 @@ function NavBar() {
         <Navbar bg="dark" expand="lg" variant="dark">
             <Container>
                 <Navbar.Brand href="/">FIFA VS</Navbar.Brand>
-<<<<<<< HEAD
-                <Navbar.Toggle aria-controls="basic-navbar-nav"/>
-=======
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
->>>>>>> a1f4d033064e87b35f459e2fd5d500f1929ce6d9
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
                         <Nav.Link href="/team/list">List Team</Nav.Link>
                         <Nav.Link href="/team/create">Create Team</Nav.Link>
                         <Nav.Link href="/matches">Match Results</Nav.Link>
                     </Nav>
-<<<<<<< HEAD
-=======
                     <Nav>
                         {Auth.loggedIn() ?
                             <Nav.Link onClick={Auth.logout} href="/">Logout</Nav.Link>
@@ -40,15 +30,10 @@ function NavBar() {
                             </>
                         }
                     </Nav>
->>>>>>> a1f4d033064e87b35f459e2fd5d500f1929ce6d9
                 </Navbar.Collapse>
             </Container>
         </Navbar>
     )
 }
 
-<<<<<<< HEAD
-export {NavBar}
-=======
 export { NavBar }
->>>>>>> a1f4d033064e87b35f459e2fd5d500f1929ce6d9
