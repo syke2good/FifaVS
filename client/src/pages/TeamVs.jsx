@@ -65,7 +65,6 @@ function TeamVs() {
     const [firstTeam, setFirstTeam] = useState("")
     const [secondTeam, setSecondTeam] = useState("")
 
-
     const [firstTeamScore, setFirstTeamScore] = useState()
     const [secondTeamScore, setSecondTeamScore] = useState()
     const [resultText, setResultText] = useState("")
