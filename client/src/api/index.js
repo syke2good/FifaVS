@@ -12,9 +12,6 @@ export const getTeamById = id => api.get(`/team/${id}`)
 export const getMatches = () => api.get('/matches')
 export const insertMatch = payload => api.post ('/match', payload)
 
-export const getMatches = () => api.get('/matches')
-export const insertMatch = payload => api.post('/match', payload)
-
 const apis = {
     insertTeam,
     getAllTeams,
