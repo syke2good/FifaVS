@@ -5,6 +5,8 @@ import {NavBar} from '../components'
 import {MatchList, TeamInsert, TeamList, TeamUpdate, TeamVs} from '../pages'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
+import LoginForm from '../components/LoginForm'
+import SignupForm from '../components/SignupForm'
 
 function App() {
     return (
@@ -21,6 +23,8 @@ function App() {
                 />
                 <Route path="/matches" exact component={MatchList}/>
                 <Route path="/" exact component={TeamVs}/>
+                <Route path="/login" exact component={LoginForm}/>
+                <Route path="/signup" exact component={SignupForm}/>
             </Switch>
         </Router>
     )

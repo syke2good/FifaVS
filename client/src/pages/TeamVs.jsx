@@ -130,9 +130,9 @@ function TeamVs() {
             <Card className="text-center select-card">
                 <Card.Header>TEAM VS</Card.Header>
                 <Card.Body>
-                    <Card.Title>Ready to play a match between you favorite team?</Card.Title>
+                    <Card.Title>Ready to play a match between your favorite team?</Card.Title>
                     <Card.Text>
-                        Just select teams from the dropdown menu and click Play!
+                        Just select your teams from the dropdown menu and click Play!
                     </Card.Text>
 
                     <TeamSelectContainer>
