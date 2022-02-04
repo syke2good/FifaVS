@@ -7,10 +7,16 @@ import {MatchList, TeamInsert, TeamList, TeamUpdate, TeamVs} from '../pages'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import LoginForm from '../components/LoginForm'
 import SignupForm from '../components/SignupForm'
+import video from '../components/goals_1.mp4'
+import './video.css'
+
 
 function App() {
     return (
         <Router>
+            <video autoPlay loop muted id='video'>
+                <source src={video} type='video/mp4'/>
+            </video>
             <NavBar/>
             <div style={{height: "1rem"}}/>
             <Switch>
